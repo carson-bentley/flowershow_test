@@ -134,7 +134,8 @@ export const Layout: React.FC<Props> = ({
                                 className="prose mx-auto pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                                 id="comment"
                             >
-                                {<Comments commentsConfig={commentsConfig} slug={urlPath} />}
+                                {/*Added key={urlPath} to force rerender, without this user has to refresh page for correct comments*/}
+                                {<Comments commentsConfig={commentsConfig} slug={urlPath} key={urlPath}/>}
                             </div>
                         )}
                     </div>
@@ -147,6 +148,8 @@ export const Layout: React.FC<Props> = ({
                         </div>
                     )}
                     
+                    {/*delete this line to remove author tags and website plug in footer*/}                    
+                    {/* <Footer links={nav.links} author={author} /> */}
                 </div>
             </div>
         </>
